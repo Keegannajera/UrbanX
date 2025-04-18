@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4322436818797218785
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 9
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Wood_Siding
+  m_Shader: {fileID: -6465566751694194690, guid: cf632f8a6cc851243b75b9c578c94dca, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _FORWARD_PLUS
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    RenderType: Opaque
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Ambient_Occlusion:
+        m_Texture: {fileID: 2800000, guid: 76608c4a68b3b5e4989c4418c636c5bf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTexture:
+        m_Texture: {fileID: 2800000, guid: 76608c4a68b3b5e4989c4418c636c5bf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal_Map:
+        m_Texture: {fileID: 2800000, guid: c8be85d0ff821be4f8727ed698becce1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Parallax_Texture:
+        m_Texture: {fileID: 2800000, guid: d5ec79dd266d22048bf48942e42b8659, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_013be21cdd044332a3ec799778906502_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 6d78d09ccf5d24f44a2a8a9562127a44, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_1a6e321354654f34afb7a2d30a3c9700_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: cf2659ea534529b409bb8822507e7b14, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaClip: 0
+    - _AlphaToMask: 0
+    - _Blend: 1
+    - _BlendModePreserveSpecular: 1
+    - _CastShadows: 1
+    - _Color_Multiply: 1
+    - _Cull: 2
+    - _DstBlend: 0
+    - _FORWARD_PLUS: 1
+    - _Fresnal_Power: 0.75
+    - _GI_Influence: 0.5
+    - _Normal_Multiplier: 1
+    - _Normal_Strength: 2
+    - _Parallax_Amplitude: 3
+    - _Parallax_Steps: 30
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _Rim_Brightness: 3
+    - _Rotate: 0
+    - _SrcBlend: 1
+    - _Surface: 0
+    - _Texture_Influence: 0.2
+    - _Toon_Ramp_Offset: 0.5
+    - _Toon_Ramp_Offset_Point: 0.5
+    - _Toon_Ramp_Smoothness: 0.05
+    - _WorkflowMode: 1
+    - _ZTest: 4
+    - _ZWrite: 1
+    - _ZWriteControl: 0
+    - _test: 0
+    m_Colors:
+    - _Ambient: {r: 1, g: 1, b: 1, a: 0}
+    - _Color: {r: 0.23584908, g: 0.21820809, b: 0.19468674, a: 0}
+    - _Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Tiling: {r: 0.25, g: 0.25, b: 0, a: 0}
+    - _Toon_Ramp_Tinting: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

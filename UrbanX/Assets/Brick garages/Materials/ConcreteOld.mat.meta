@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 497e264877f93e54aaef6d9ad65d57c9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 217158
+  packageName: Brick garages
+  packageVersion: 1.0
+  assetPath: Assets/Brick garages/Materials/ConcreteOld.mat
+  uploadId: 490078

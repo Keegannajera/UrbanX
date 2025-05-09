@@ -7,7 +7,9 @@ public class Interactable : MonoBehaviour
     public GameObject interactIconPrefab;
     public SphereCollider rangeCollider;
     public GameObject interactIcon;
-    public float rangeRadius = 4;
+    public float rangeRadius = 5f;
+    public float rangeRadiusMin = 2f;
+
     public float iconScalingMax = 1f;
     public float iconScalingMin = 0.5f;
     public GameObject player;
@@ -29,17 +31,19 @@ public class Interactable : MonoBehaviour
     void Update()
     {
         float distance = (player.transform.position - transform.position).magnitude;
-        float distanceRatio = distance / rangeRadius;
+
+        float distanceRatio = distance > rangeRadiusMin ? (distance - rangeRadiusMin) / (rangeRadius - rangeRadiusMin) : 0;
         distanceRatio = Mathf.Clamp(distanceRatio, 0f, 1f);
-        float scale = iconScalingMin + (distanceRatio * (iconScalingMax-iconScalingMin));
+        float scale = iconScalingMin + ((1 - distanceRatio) * (iconScalingMax-iconScalingMin));
         iconPanel.transform.localScale = new Vector3(scale, scale, scale);
 
+        print(distance +", "+ distanceRatio + ", "+ scale);
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        print(other.name);
+        //print(other.name);
         if(other.tag == "Player")
         {
             interactIcon.SetActive(true);
@@ -47,7 +51,7 @@ public class Interactable : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        print(other.name);
+        //print(other.name);
 
         if (other.tag == "Player")
         {

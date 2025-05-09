@@ -155,6 +155,12 @@ MonoBehaviour:
   interactIconPrefab: {fileID: 0}
   rangeCollider: {fileID: 0}
   interactIcon: {fileID: 0}
+  rangeRadius: 5
+  rangeRadiusMin: 4
+  iconScalingMax: 1
+  iconScalingMin: 0.5
+  player: {fileID: 0}
+  iconPanel: {fileID: 0}
 --- !u!135 &71938625
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -259,7 +265,7 @@ Transform:
   m_GameObject: {fileID: 71938623}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.32000017, y: 0.61, z: 0}
+  m_LocalPosition: {x: 0, y: 0.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -538,7 +544,7 @@ Transform:
   m_GameObject: {fileID: 274656789}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.35, y: 1.787002, z: -5.75}
+  m_LocalPosition: {x: 2.3, y: 2.01, z: -4.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1560,10 +1566,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 71938629}
     m_Modifications:
-    - target: {fileID: 698432939081595384, guid: cf7741e5397305745aa18cf21df90ce0, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3058996548860856646, guid: cf7741e5397305745aa18cf21df90ce0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1647,10 +1649,6 @@ PrefabInstance:
     - target: {fileID: 7701304928066936807, guid: cf7741e5397305745aa18cf21df90ce0, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 7701304928066936807, guid: cf7741e5397305745aa18cf21df90ce0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

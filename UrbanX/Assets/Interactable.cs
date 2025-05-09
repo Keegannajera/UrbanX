@@ -1,6 +1,12 @@
 using UnityEngine;
 using UnityEditor.UI;
 
+public interface IInteractable
+{
+    void Interact();
+}
+
+
 public class Interactable : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -15,6 +21,7 @@ public class Interactable : MonoBehaviour
     public GameObject player;
     public GameObject iconPanel;
 
+    public bool interactable = false;
 
     void Start()
     {
@@ -37,16 +44,30 @@ public class Interactable : MonoBehaviour
         float scale = iconScalingMin + ((1 - distanceRatio) * (iconScalingMax-iconScalingMin));
         iconPanel.transform.localScale = new Vector3(scale, scale, scale);
 
-        print(distance +", "+ distanceRatio + ", "+ scale);
+        //print(distance +", "+ distanceRatio + ", "+ scale);
+
+        if (Input.GetKeyDown(KeyCode.E) && interactable)
+        {
+            gameObject.GetComponent<IInteractable>().Interact();
+            //Interact();
+        }
 
     }
+
+    //public void Interact()
+    //{
+    //    Debug.Log("Interacted with the item" + gameObject.name);
+    //    //Perform Interaction here.
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
         //print(other.name);
+        //other.gameObject.GetComponent<IInteractable>();
         if(other.tag == "Player")
         {
             interactIcon.SetActive(true);
+            interactable = true;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -56,6 +77,7 @@ public class Interactable : MonoBehaviour
         if (other.tag == "Player")
         {
             interactIcon.SetActive(false);
+            interactable = false;
         }
     }
 

@@ -6,8 +6,8 @@ public class CanvasManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private static CanvasManager instance = null;
     public static CanvasManager Instance {  get { return instance; } }
-    
-    
+
+    public GameObject camCorderPanel;
     public GameObject logCollectionDisplayPanel;
 
 
@@ -33,11 +33,13 @@ public class CanvasManager : MonoBehaviour
 
     public void DisplayLogCollection()
     {
+        camCorderPanel.SetActive(false);
         logCollectionDisplayPanel.SetActive(true);
         MouseScript.Instance.UnlockCursor();
     }
     public void EndLogCollection()
     {
+        camCorderPanel.SetActive(true);
         logCollectionDisplayPanel.SetActive(false);
         MouseScript.Instance.LockCursor();
 

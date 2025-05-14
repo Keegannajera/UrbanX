@@ -44,6 +44,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        HideAllPanels();
         pauseMenuPanel.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;

@@ -9,6 +9,8 @@ public class CanvasManager : MonoBehaviour
 
     public GameObject camCorderPanel;
     public GameObject logCollectionDisplayPanel;
+    public GameObject videoCollectionDisplayPanel;
+
 
 
     void Awake()
@@ -42,9 +44,20 @@ public class CanvasManager : MonoBehaviour
         camCorderPanel.SetActive(true);
         logCollectionDisplayPanel.SetActive(false);
         MouseScript.Instance.LockCursor();
-
     }
 
+    public void DisplayVideoCollection()
+    {
+        camCorderPanel.SetActive(false);
+        videoCollectionDisplayPanel.SetActive(true);
+        MouseScript.Instance.UnlockCursor();
+    }
 
+    public void EndVideoCollection()
+    {
+        camCorderPanel.SetActive(true);
+        videoCollectionDisplayPanel.SetActive(false);
+        MouseScript.Instance.LockCursor();
+    }
 
 }

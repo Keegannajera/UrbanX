@@ -18,7 +18,11 @@ public class Collection: MonoBehaviour
         Debug.Log("Enter Collection Play");
         if(type== CollectionType.Log)
         {
-           CanvasManager.Instance.DisplayLogCollection();
+            CanvasManager.Instance.DisplayLogCollection();
+        }
+        else if(type==CollectionType.Video)
+        {
+            CanvasManager.Instance.DisplayVideoCollection();
         }
     }
 

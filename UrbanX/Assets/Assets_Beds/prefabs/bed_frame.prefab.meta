@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1da67dcf0dc91a745a078e8dbc92a146
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 25256
+  packageName: Bed collection
+  packageVersion: 1.0
+  assetPath: Assets/Assets_Beds/prefabs/bed_frame.prefab
+  uploadId: 41983

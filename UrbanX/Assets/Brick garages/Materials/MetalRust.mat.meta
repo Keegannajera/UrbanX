@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d40e1e07e2f8dc542b7b3d0f514e3429
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 217158
+  packageName: Brick garages
+  packageVersion: 1.0
+  assetPath: Assets/Brick garages/Materials/MetalRust.mat
+  uploadId: 490078

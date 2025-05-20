@@ -2,13 +2,18 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MenuButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
+public class MenuButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private TMP_Text _text;
     private Button _button;
 
+    /// For use with the main menu. If you won't be dealing with this, leave the fields blank.
+    [SerializeField] private GameObject _mainMenuReference;
+    [SerializeField] private GameObject _creditsMenuReference;
+    
     void Start()
     {
         _text = GetComponentInChildren<TMP_Text>();
@@ -30,16 +35,10 @@ public class MenuButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         _text.color = Color.white;
     }
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        _text.color = Color.white;
-    }
-
     // Button click methods
     public void NewGameConfirmed()
     {
-        
-        Debug.Log("Creating new game...");
+        SceneManager.LoadScene("Apartment");
     }
 
     public void LoadGameConfirmed()
@@ -47,14 +46,37 @@ public class MenuButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         Debug.Log("The load button doesn't work as of now.");
     }
 
+    public void SettingsConfirmed()
+    {
+        Debug.Log("The settings button doesn't work as of now.");
+    }
+
     public void CreditsConfirmed()
     {
-        Debug.Log("The credits button doesn't work as of now.");
+        OpenCreditsScreen();
+    }
+
+    public void BackButton()
+    {
+        CloseCreditsScreen();
     }
 
     public void QuitGameConfirmed()
     {
         Debug.Log("Quitting...");
         Application.Quit();
+    }
+
+    // Private methods
+    private void OpenCreditsScreen()
+    {
+        _mainMenuReference.SetActive(false);
+        _creditsMenuReference.SetActive(true);
+    }
+
+    private void CloseCreditsScreen()
+    {
+        _mainMenuReference.SetActive(true);
+        _creditsMenuReference.SetActive(false);
     }
 }

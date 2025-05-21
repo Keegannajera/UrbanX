@@ -267,7 +267,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainMenuReference: {fileID: 0}
   _creditsMenuReference: {fileID: 0}
-  _settingsMenuReference: {fileID: 0}
 --- !u!1 &262657491
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,7 +706,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainMenuReference: {fileID: 1241652002}
   _creditsMenuReference: {fileID: 1198304674}
-  _settingsMenuReference: {fileID: 0}
 --- !u!1 &523549283
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,9 +738,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1198304675}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 423}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -116}
   m_SizeDelta: {x: 592.4082, y: 135.1005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &523549285
@@ -1128,7 +1126,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainMenuReference: {fileID: 0}
   _creditsMenuReference: {fileID: 0}
-  _settingsMenuReference: {fileID: 0}
 --- !u!1 &1048253175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1382,7 +1379,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainMenuReference: {fileID: 0}
   _creditsMenuReference: {fileID: 0}
-  _settingsMenuReference: {fileID: 0}
 --- !u!1 &1198304674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1596,7 +1592,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainMenuReference: {fileID: 0}
   _creditsMenuReference: {fileID: 0}
-  _settingsMenuReference: {fileID: 0}
 --- !u!114 &1234267036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1643,7 +1638,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1234267035}
         m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
-        m_MethodName: CreditsConfirmed
+        m_MethodName: SettingsConfirmed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1797,8 +1792,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.2092, y: -11.936}
-  m_SizeDelta: {x: 1595.3319, y: 662.8889}
+  m_AnchoredPosition: {x: 6.4352, y: -11.9437}
+  m_SizeDelta: {x: 1761.4525, y: 662.8889}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1371026229
 MonoBehaviour:
@@ -1820,25 +1815,28 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Person 1 - Role(s)
+  m_text: 'Elizabeth (Lizzy) Castreje - Gameplay Design, VFX/SFX
 
-    Person 2 - Role(s)
+    Sebastian
+    Amirola - Environment Design, Narrative Design, VFX/SFX
 
-    Person 3 - Role(s)
+    Alfredo Torres Nieblas
+    - Environment Design, Narrative Design
 
-    Person
-    4 - Role(s)
+    Alexander Cortex - Gameplay Design
 
-    Person 5 - Role(s)
+    Samantha
+    Zavaleta - Programming, Art
 
-    Person 6 - Role(s)
+    Ivan Guerrero Andres - Programming, UI/UX Implementation
 
-    Person 7 - Role(s)
+    Keegan
+    Rodriguez Najera - Art, UI/UX Design
 
-    Person
-    8 - Role(s)
+    Allan Weilun Tsai - Programming
 
-    Person 9 - Role(s)'
+    Shenjie
+    (Jack) Zhang - Programming'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2a7dcccc60b7a3c4e9daf99fe1460641, type: 2}
   m_sharedMaterial: {fileID: -5850435585612033584, guid: 2a7dcccc60b7a3c4e9daf99fe1460641, type: 2}
@@ -1865,10 +1863,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 72
+  m_fontSize: 56.7
+  m_fontSizeBase: 54
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -2360,10 +2358,10 @@ RectTransform:
   - {fileID: 1504170571}
   m_Father: {fileID: 1198304675}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 960.7998, y: 111.006165}
-  m_SizeDelta: {x: 1595.3, y: 80.1461}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 7.01001, y: 110.9984}
+  m_SizeDelta: {x: 1761.5, y: 80.1461}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1697591714
 MonoBehaviour:
@@ -2379,7 +2377,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainMenuReference: {fileID: 1241652002}
   _creditsMenuReference: {fileID: 1198304674}
-  _settingsMenuReference: {fileID: 0}
 --- !u!114 &1697591715
 MonoBehaviour:
   m_ObjectHideFlags: 0

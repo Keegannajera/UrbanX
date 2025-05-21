@@ -13,10 +13,15 @@ public class MenuButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     /// For use with the main menu. If you won't be dealing with this, leave the fields blank.
     [SerializeField] private GameObject _mainMenuReference;
     [SerializeField] private GameObject _creditsMenuReference;
-    
-    void Start()
+
+    void OnEnable()
     {
         _text = GetComponentInChildren<TMP_Text>();
+        _text.color = Color.white;
+    }
+
+    void Start()
+    {
         _button = GetComponent<Button>();
     }
 

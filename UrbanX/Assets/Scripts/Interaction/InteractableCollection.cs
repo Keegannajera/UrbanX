@@ -20,6 +20,7 @@ public class InteractableCollection : Interactable
         Debug.Log("Interacted with the item" + gameObject.name);
         //Perform Interaction here.
         collection.Play();
+        CanvasManager.Instance.AddCollectionToInventoryDisplay(collection);
     }
 
 

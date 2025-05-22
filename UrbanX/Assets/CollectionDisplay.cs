@@ -26,7 +26,7 @@ public class CollectionDisplay : MonoBehaviour
         switch (collection.type)
         {
             case CollectionType.Log:
-                btn.onClick.AddListener(CanvasManager.Instance.DisplayLogCollection);
+                btn.onClick.AddListener(()=> {CanvasManager.Instance.DisplayLogCollection(collection.text); });
                 break;
             case CollectionType.Video:
                 btn.onClick.AddListener(CanvasManager.Instance.DisplayVideoCollection);

@@ -2,6 +2,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEditor;
+using TMPro;
+using System.Collections.Generic;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -13,9 +15,17 @@ public class CanvasManager : MonoBehaviour
     public GameObject logCollectionDisplayPanel;
     public GameObject videoCollectionDisplayPanel;
 
+    public GameObject collectionInventoryPanel;
+    public GameObject lastStayedPanel;
+
     public VideoPlayer videoPlayer;
 
+    public GameObject collectionDisplayPrefab;
+    public GameObject grid;
+    public List<Collection> collections;
 
+    public TMP_Text logPanelText;
+    public bool afterInventoryClick = false;
 
     void Awake()
     {
@@ -34,19 +44,31 @@ public class CanvasManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            ShowCollectionDisplayPanel();
+        }
     }
 
-    public void DisplayLogCollection()
+    public void DisplayLogCollection(string text)
     {
         camCorderPanel.SetActive(false);
         logCollectionDisplayPanel.SetActive(true);
+        collectionInventoryPanel.SetActive(false);
+
+        logPanelText.text = text;
+
+        lastStayedPanel = logCollectionDisplayPanel;
         MouseScript.Instance.UnlockCursor();
     }
     public void EndLogCollection()
     {
         camCorderPanel.SetActive(true);
         logCollectionDisplayPanel.SetActive(false);
+
+        if (lastStayedPanel == collectionInventoryPanel)
+            collectionInventoryPanel.SetActive(true);
+        lastStayedPanel = null;
         MouseScript.Instance.LockCursor();
     }
 
@@ -54,7 +76,12 @@ public class CanvasManager : MonoBehaviour
     {
         camCorderPanel.SetActive(false);
         videoCollectionDisplayPanel.SetActive(true);
+        collectionInventoryPanel.SetActive(false);
+
+
         videoPlayer.Play();
+
+        lastStayedPanel = videoCollectionDisplayPanel;
         MouseScript.Instance.UnlockCursor();
     }
 
@@ -64,7 +91,39 @@ public class CanvasManager : MonoBehaviour
         videoCollectionDisplayPanel.SetActive(false);
         videoPlayer.Pause();
 
+        if (lastStayedPanel == collectionInventoryPanel)
+            lastStayedPanel.SetActive(true);
+        lastStayedPanel = null;
         MouseScript.Instance.LockCursor();
     }
 
+    public void ShowCollectionDisplayPanel()
+    {
+        camCorderPanel.SetActive(false);
+        logCollectionDisplayPanel.SetActive(false);
+        videoCollectionDisplayPanel.SetActive(false);
+
+        collectionInventoryPanel.SetActive(true);
+
+        lastStayedPanel = collectionInventoryPanel;
+        MouseScript.Instance.UnlockCursor();
+    }
+
+    public void CloseCollectionDisplayPanel()
+    {
+        camCorderPanel.SetActive(true);
+        collectionInventoryPanel.SetActive(false);
+        if(lastStayedPanel != null) 
+            lastStayedPanel.SetActive(true);
+
+        MouseScript.Instance.LockCursor();
+    }
+
+    public void AddCollectionToInventoryDisplay(Collection collection)
+    {
+        GameObject go = Instantiate(collectionDisplayPrefab, grid.transform);
+        CollectionDisplay cd = go.GetComponent<CollectionDisplay>();
+        cd.collection = collection;
+        collections.Add(collection);
+    }
 }

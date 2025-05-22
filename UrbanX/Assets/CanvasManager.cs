@@ -1,5 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Video;
+using UnityEditor;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class CanvasManager : MonoBehaviour
     public GameObject camCorderPanel;
     public GameObject logCollectionDisplayPanel;
     public GameObject videoCollectionDisplayPanel;
+
+    public VideoPlayer videoPlayer;
 
 
 
@@ -50,6 +54,7 @@ public class CanvasManager : MonoBehaviour
     {
         camCorderPanel.SetActive(false);
         videoCollectionDisplayPanel.SetActive(true);
+        videoPlayer.Play();
         MouseScript.Instance.UnlockCursor();
     }
 
@@ -57,6 +62,8 @@ public class CanvasManager : MonoBehaviour
     {
         camCorderPanel.SetActive(true);
         videoCollectionDisplayPanel.SetActive(false);
+        videoPlayer.Pause();
+
         MouseScript.Instance.LockCursor();
     }
 

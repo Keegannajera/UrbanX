@@ -48,6 +48,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenuPanel.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+        MouseScript.Instance.LockCursor();
+
     }
 
     void Pause()
@@ -55,6 +57,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenuPanel.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        MouseScript.Instance.UnlockCursor();
+
     }
 
     public void LoadMenu()

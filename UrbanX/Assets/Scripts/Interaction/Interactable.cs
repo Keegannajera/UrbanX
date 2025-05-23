@@ -22,6 +22,9 @@ public class Interactable : MonoBehaviour
     public GameObject iconPanel;
 
     public bool interactable = false;
+    public bool isremoveAfterInteract = true;
+
+
 
     void Start()
     {

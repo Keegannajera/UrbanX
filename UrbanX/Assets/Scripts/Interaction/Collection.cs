@@ -12,6 +12,8 @@ public class Collection: MonoBehaviour
 
     public CollectionType type;
 
+    public string name;
+
     public string text;
     public Object video;
     public Object audio;
@@ -25,7 +27,7 @@ public class Collection: MonoBehaviour
         }
         else if(type==CollectionType.Video)
         {
-            CanvasManager.Instance.DisplayVideoCollection();
+            CanvasManager.Instance.DisplayVideoCollection(video);
         }
     }
 

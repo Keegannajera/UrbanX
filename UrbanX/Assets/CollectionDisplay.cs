@@ -29,7 +29,7 @@ public class CollectionDisplay : MonoBehaviour
                 btn.onClick.AddListener(()=> {CanvasManager.Instance.DisplayLogCollection(collection.text); });
                 break;
             case CollectionType.Video:
-                btn.onClick.AddListener(CanvasManager.Instance.DisplayVideoCollection);
+                btn.onClick.AddListener(() => { CanvasManager.Instance.DisplayVideoCollection(collection.video); });
                 break;
 
         } 

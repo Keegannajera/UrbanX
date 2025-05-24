@@ -4,6 +4,8 @@ using UnityEngine.Video;
 using UnityEditor;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -13,12 +15,15 @@ public class CanvasManager : MonoBehaviour
 
     public GameObject camCorderPanel;
     public GameObject logCollectionDisplayPanel;
+    public GameObject audioCollectionDisplayPanel;
     public GameObject videoCollectionDisplayPanel;
 
     public GameObject collectionInventoryPanel;
     public GameObject lastStayedPanel;
 
     public VideoPlayer videoPlayer;
+    public AudioSource videoAudioSource;
+    public AudioSource audioSource;
 
     public GameObject collectionDisplayPrefab;
     public GameObject grid;
@@ -26,6 +31,7 @@ public class CanvasManager : MonoBehaviour
 
     public TMP_Text logPanelText;
     public bool afterInventoryClick = false;
+    public Slider slider;
 
     void Awake()
     {
@@ -48,8 +54,14 @@ public class CanvasManager : MonoBehaviour
         {
             ShowCollectionDisplayPanel();
         }
-    }
 
+        if (audioSource.isPlaying)
+        {
+            slider.value = audioSource.time / audioSource.clip.length;
+        }
+    }
+    
+    #region Log
     public void DisplayLogCollection(string text)
     {
         camCorderPanel.SetActive(false);
@@ -78,6 +90,43 @@ public class CanvasManager : MonoBehaviour
         lastStayedPanel = null;
         MouseScript.Instance.LockCursor();
     }
+    #endregion
+
+
+    #region Audio
+    public void DisplayAudioCollection(Object clip)
+    {
+        camCorderPanel.SetActive(false);
+        audioCollectionDisplayPanel.SetActive(true);
+        collectionInventoryPanel.SetActive(false);
+
+        audioSource.clip = (AudioClip)clip;
+        audioSource.Stop();
+        audioSource.Play();
+
+        lastStayedPanel = logCollectionDisplayPanel;
+        MouseScript.Instance.UnlockCursor();
+    }
+    public void EndAudioCollection()
+    {
+        audioSource.Pause();
+        audioCollectionDisplayPanel.SetActive(false);
+
+        if (lastStayedPanel == collectionInventoryPanel || afterInventoryClick)
+        {
+            collectionInventoryPanel.SetActive(true);
+            lastStayedPanel = null;
+
+            return;
+        }
+
+        camCorderPanel.SetActive(true);
+        lastStayedPanel = null;
+        MouseScript.Instance.LockCursor();
+    }
+    #endregion
+
+    #region Video
 
     public void DisplayVideoCollection(Object clip)
     {
@@ -86,6 +135,10 @@ public class CanvasManager : MonoBehaviour
         collectionInventoryPanel.SetActive(false);
 
         videoPlayer.clip = (VideoClip)clip;
+        videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
+        videoPlayer.EnableAudioTrack(0, true);
+        videoPlayer.SetTargetAudioSource(0, videoAudioSource);
+
         videoPlayer.Stop();
         videoPlayer.Play();
 
@@ -110,7 +163,10 @@ public class CanvasManager : MonoBehaviour
         lastStayedPanel = null;
         MouseScript.Instance.LockCursor();
     }
+    #endregion
 
+
+    #region Collection Inventory
     public void ShowCollectionDisplayPanel()
     {
         camCorderPanel.SetActive(false);
@@ -145,7 +201,9 @@ public class CanvasManager : MonoBehaviour
         GameObject go = Instantiate(collectionDisplayPrefab, grid.transform);
         CollectionDisplay cd = go.GetComponent<CollectionDisplay>();
         cd.collection = collection;
-        go.transform.Find("Name").GetComponent<TMP_Text>().text = collection.name;
+        go.transform.Find("Name").GetComponent<TMP_Text>().text = collection.item.name;
         collections.Add(collection);
     }
+
+    #endregion
 }

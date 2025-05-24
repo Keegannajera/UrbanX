@@ -22,7 +22,7 @@ public class Interactable : MonoBehaviour
     public GameObject iconPanel;
 
     public bool interactable = false;
-    public bool isRemoveAfterInteract = true;
+    //public bool isRemoveAfterInteract = true;
     protected bool interactedOnce = false;
 
 

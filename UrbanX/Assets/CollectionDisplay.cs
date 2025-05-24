@@ -23,13 +23,16 @@ public class CollectionDisplay : MonoBehaviour
 
     private void OnEnable()
     {
-        switch (collection.type)
+        switch (collection.item.type)
         {
             case CollectionType.Log:
-                btn.onClick.AddListener(()=> {CanvasManager.Instance.DisplayLogCollection(collection.text); });
+                btn.onClick.AddListener(()=> {CanvasManager.Instance.DisplayLogCollection(collection.item.text); });
                 break;
             case CollectionType.Video:
-                btn.onClick.AddListener(() => { CanvasManager.Instance.DisplayVideoCollection(collection.video); });
+                btn.onClick.AddListener(() => { CanvasManager.Instance.DisplayVideoCollection(collection.item.video); });
+                break;
+            case CollectionType.Audio:
+                btn.onClick.AddListener(() => { CanvasManager.Instance.DisplayVideoCollection(collection.item.audio); });
                 break;
 
         } 

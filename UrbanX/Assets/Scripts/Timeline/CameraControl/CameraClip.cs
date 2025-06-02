@@ -4,11 +4,17 @@ using UnityEngine.Timeline;
 
 public class CameraClip : PlayableAsset, ITimelineClipAsset
 {
-    private ITimelineClipAsset _timelineClipAssetImplementation;
-    private PlayableAsset _playableAssetImplementation;
-    public ClipCaps clipCaps => _timelineClipAssetImplementation.clipCaps;
+    [SerializeField] CameraBehavior template = new CameraBehavior();
+
+    public ClipCaps clipCaps
+    {
+        get { return ClipCaps.None; }
+    }
+
+
     public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
     {
-        return _playableAssetImplementation.CreatePlayable(graph, owner);
+        return ScriptPlayable<CameraBehavior>.Create(graph, template);
+        //return _playableAssetImplementation.CreatePlayable(graph, owner);
     }
 }

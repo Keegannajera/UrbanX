@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEditor.UI;
+//using UnityEditor.UI;
 
 //public interface IInteractable
 //{
@@ -22,7 +22,8 @@ public class Interactable : MonoBehaviour
     public GameObject iconPanel;
 
     public bool interactable = false;
-    public bool isremoveAfterInteract = true;
+    //public bool isRemoveAfterInteract = true;
+    protected bool interactedOnce = false;
 
 
 

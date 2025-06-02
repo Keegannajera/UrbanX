@@ -252,6 +252,7 @@ public class SaveManager : MonoBehaviour
     // Clears all save game files
     public void DeleteSaveGame()
     {
+        _saveFilePath = Path.Combine(Application.persistentDataPath, SAVE_FILE_NAME);
         if (File.Exists(_saveFilePath))
         {
             try

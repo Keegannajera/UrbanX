@@ -21,7 +21,7 @@ public class SaveableEntityJson : MonoBehaviour
     private void Awake()
     {
         // Validate the UID
-        if (Application.isPlaying && (string.IsNullOrEmpty(uniqueIdentifier) || !IsValidGuid(uniqueIdentifier)))
+        if (Application.isPlaying && (string.IsNullOrEmpty(uniqueIdentifier)))// || !IsValidGuid(uniqueIdentifier)))
         {
              Debug.LogError($"SaveableEntity on {gameObject.name} has an invalid or empty UniqueIdentifier in Play mode. Cannot register.");
              enabled = false;

@@ -10,19 +10,30 @@ public enum CollectionType
 public class Collection: MonoBehaviour
 {
 
-    public CollectionType type;
+    //public CollectionType type;
 
+    //public string name;
+
+    //public string text;
+    //public Object video;
+    //public Object audio;
+
+    public Item item;
 
     public void Play()
     {
         Debug.Log("Enter Collection Play");
-        if(type== CollectionType.Log)
+        if(item.type== CollectionType.Log)
         {
-            CanvasManager.Instance.DisplayLogCollection();
+            CanvasManager.Instance.DisplayLogCollection(item.text);
         }
-        else if(type==CollectionType.Video)
+        else if(item.type ==CollectionType.Video)
         {
-            CanvasManager.Instance.DisplayVideoCollection();
+            CanvasManager.Instance.DisplayVideoCollection(item.video);
+        }
+        else if (item.type == CollectionType.Audio)
+        {
+            CanvasManager.Instance.DisplayAudioCollection(item.audio);
         }
     }
 

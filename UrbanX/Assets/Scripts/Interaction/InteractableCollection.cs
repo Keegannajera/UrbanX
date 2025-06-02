@@ -20,6 +20,18 @@ public class InteractableCollection : Interactable
         Debug.Log("Interacted with the item" + gameObject.name);
         //Perform Interaction here.
         collection.Play();
+        if (collection.item.isRemoveAfterInteract)
+        {
+            CanvasManager.Instance.AddCollectionToInventoryDisplay(collection);
+            Destroy(gameObject);
+        }
+        else if (!interactedOnce)
+        {
+            CanvasManager.Instance.AddCollectionToInventoryDisplay(collection);
+            interactedOnce = true;
+
+        }
+
     }
 
 

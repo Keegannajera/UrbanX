@@ -167,7 +167,7 @@ MonoBehaviour:
   template:
     m_Change_Pos: 1
     targetPos: {x: 1.21, y: 0, z: 0}
-    m_Change_Rotation: 1
+    m_Change_Rotation: 0
     m_Rotation: {x: 0.205521, y: 0, z: 0, w: 0.9786527}
     m_Size: 0
 --- !u!114 &5416011281763077408

@@ -14,7 +14,7 @@ public class CameraBehavior : PlayableBehaviour
     private Vector3 originalPos;
     private Quaternion originalRotation;
     private Vector3 ogPos = Vector3.negativeInfinity;
-    private Camera controllingCam;
+    private Transform controllingCam;
 
     
 
@@ -22,23 +22,23 @@ public class CameraBehavior : PlayableBehaviour
 
     public override void ProcessFrame(Playable playable, FrameData info, object playerData)
     {
-        controllingCam = playerData as Camera;
+        controllingCam = playerData as Transform;
         if (controllingCam == null)
             return;
         
         float normalizedTime = (float)(playable.GetTime() / playable.GetDuration());
 
         if(m_Change_Pos)
-            controllingCam.transform.position = Vector3.Lerp(originalPos, targetPos, normalizedTime);
+            controllingCam.position = Vector3.Lerp(originalPos, targetPos, normalizedTime);
         if(m_Change_Rotation)
-            controllingCam.transform.rotation = Quaternion.Lerp(originalRotation, m_Rotation, normalizedTime);
+            controllingCam.localRotation = Quaternion.Lerp(originalRotation, m_Rotation, normalizedTime);
     }
 
     public override void OnBehaviourPlay(Playable playable, FrameData info)
     {
-        controllingCam = info.output.GetUserData() as Camera;
-        originalPos = controllingCam.transform.position;
-        originalRotation = controllingCam.transform.rotation;
+        controllingCam = info.output.GetUserData() as Transform;
+        originalPos = controllingCam.position;
+        originalRotation = controllingCam.localRotation;
     }
 
     public override void OnPlayableDestroy(Playable playable)

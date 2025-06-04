@@ -234,14 +234,14 @@ public class SaveManager : MonoBehaviour
         // TODO: Handle objects that exist in the current scene but not in the save (destruction logic)
         // For example, if an enemy was defeated when the game was saved, but the Prefab is spawned by default when the scene loads, you would need to destroy this Prefab instance.
         int destroyedCount = 0;
-        /*
+        
         foreach(var remainingEntity in activeEntities.Values)
         {
              Debug.Log($"SaveManager: Object {remainingEntity.gameObject.name} with ID {remainingEntity.UniqueIdentifier} found in scene but not in save data. Destroying.");
              Destroy(remainingEntity.gameObject);
              destroyedCount++;
         }
-        */
+        
 
 
         Debug.Log($"SaveManager: Applied saved state to scene: {currentSceneName}. Applied {appliedCount}, Not Found {notFoundCount}.");

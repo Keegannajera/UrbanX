@@ -123,6 +123,7 @@ public class EventTriggerType : MonoBehaviour
 
             case EventType.TYPE_G:
                 Debug.Log("Auto save activated, 2nd floor balcony doors opened");
+                //TODO: open door
                 SaveManager.Instance.SaveGame();
                 break;
         }

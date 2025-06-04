@@ -4,7 +4,7 @@ using UnityEngine.Timeline;
 
 [TrackColor(0,1,0)]
 [TrackClipType(typeof(CameraClip))]
-[TrackBindingType(typeof(Camera))]
+[TrackBindingType(typeof(Transform))]
 public class CameraTrack : TrackAsset
 {
 }

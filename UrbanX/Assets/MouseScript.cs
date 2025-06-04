@@ -43,8 +43,6 @@ public class MouseScript : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Confined;
         playerMovemnt.controllable = false;
-
-
     }
 
 }

@@ -20,7 +20,11 @@ public class PlayerMovement : MonoBehaviour
     
     void Update()
     {
-        if (!controllable) return;
+        if (!controllable)
+        {
+            Debug.Log("No player movement");
+            return;
+        }
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -44,5 +48,10 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    public void ChangeControllState(bool value)
+    {
+        controllable = value;
     }
 }

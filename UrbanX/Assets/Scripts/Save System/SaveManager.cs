@@ -30,6 +30,7 @@ public class SaveManager : MonoBehaviour
             InitializeGameData();
 
             SceneManager.sceneLoaded += OnSceneLoaded;
+            SceneManager.sceneUnloaded += OnSceneUnloaded;
         }
         else if (Instance != null && Instance != this)
         {
@@ -42,6 +43,7 @@ public class SaveManager : MonoBehaviour
     {
         // Unsubscribe from the event when SaveManager is destroyed to prevent memory leaks
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneUnloaded -= OnSceneUnloaded;
     }
 
     public void StartNewGame(bool mode)
@@ -134,7 +136,6 @@ public class SaveManager : MonoBehaviour
     {
         Debug.Log($"SaveManager: Scene loaded: {scene.name} New game start: {newGameStart}");
 
-        InitializeGameData();
         // After the scene is loaded, apply the saved state for the current scene
         if (_currentGameSaveData != null && !newGameStart)
         {
@@ -254,6 +255,13 @@ public class SaveManager : MonoBehaviour
 
         Debug.Log($"SaveManager: Applied saved state to scene: {currentSceneName}. Applied {appliedCount}, Not Found {notFoundCount}.");
         if (destroyedCount > 0) Debug.Log($"SaveManager: Destroyed {destroyedCount} objects not present in save data for scene: {currentSceneName}.");
+    }
+    
+    private void OnSceneUnloaded(Scene current)
+    {
+        // 在这里清空静态字典，为下一个场景做准备
+        SaveableEntityJson._activeSaveableEntities.Clear();
+        Debug.Log($"Scene {current.name} unloaded. Static saveable entities cleared.");
     }
 
 

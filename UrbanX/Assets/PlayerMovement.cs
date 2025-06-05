@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     {
         MouseScript.Instance.LockCursor();
         Time.timeScale = 1f;
+        controller.enabled = true;
     }
 
     void Update()

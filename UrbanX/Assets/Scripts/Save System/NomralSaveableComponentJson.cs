@@ -4,7 +4,7 @@ using System;
 // Put on to the object with savable entity
 public class NormalSaveableComponentJson : MonoBehaviour, ISaveable
 {
-    public Vector3 initialPosition; 
+    private Vector3 initialPosition; 
 
     void Awake()
     {

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class EventTriggerType : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class EventTriggerType : MonoBehaviour
 
     [SerializeField] private EventType eventType = EventType.TYPE_A;
     [SerializeField] private GameObject _missingPersonCanvas;
+    [SerializeField] private PlayableDirector _timeline;
 
     // Conditions shared between event trigger objects 
     private static int _numInteractedEventsC = 0;
@@ -85,11 +87,15 @@ public class EventTriggerType : MonoBehaviour
         {
             case EventType.TYPE_A:
                 Debug.Log("Auto save activated");
+                SaveManager.Instance.SaveGame();
                 _eventASatisfied = true;
                 break;
 
             case EventType.TYPE_B:
                 Debug.Log("Close front door, activate save");
+                SaveManager.Instance.SaveGame();
+                _timeline.playableAsset = Resources.Load("Timeline/EventTriggerBTimeline") as PlayableAsset;
+                _timeline.Play();
                 CloseFrontDoor();
                 _eventBSatisfied = true;
                 break;
@@ -117,6 +123,8 @@ public class EventTriggerType : MonoBehaviour
 
             case EventType.TYPE_G:
                 Debug.Log("Auto save activated, 2nd floor balcony doors opened");
+                //TODO: open door
+                SaveManager.Instance.SaveGame();
                 break;
         }
 

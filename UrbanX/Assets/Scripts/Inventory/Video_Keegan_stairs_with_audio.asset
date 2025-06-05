@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74dfdd1f2f2d01f4999b419eaf533347, type: 3}
+  m_Name: Video_Keegan_stairs_with_audio
+  m_EditorClassIdentifier: 
+  type: 0
+  name: Keegan_stairs_with_audio
+  text: 
+  video: {fileID: 32900000, guid: 98d45ce4a38d075418c5d79e14109437, type: 3}
+  audio: {fileID: 0}
+  isRemoveAfterInteract: 0

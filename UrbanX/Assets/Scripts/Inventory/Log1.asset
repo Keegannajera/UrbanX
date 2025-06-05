@@ -16,4 +16,5 @@ MonoBehaviour:
   name: Log 1
   text: write the text here
   video: {fileID: 0}
-  audio: {fileID: 0}
+  audio: {fileID: 8300000, guid: 8be77eeb89177e246b8192d8021e00ef, type: 3}
+  isRemoveAfterInteract: 0

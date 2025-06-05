@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour
 {
-    public static SaveManager Instance; 
+    public static SaveManager Instance;
+    private bool newGameStart;
 
     private GameSaveData _currentGameSaveData; // The current game save data object
     private string _saveFilePath; // Full path to the save file
@@ -30,7 +31,7 @@ public class SaveManager : MonoBehaviour
 
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
-        else if (Instance != this)
+        else if (Instance != null && Instance != this)
         {
             // Ensure only one SaveManager exists
             Destroy(gameObject);
@@ -43,6 +44,12 @@ public class SaveManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    public void StartNewGame(bool mode)
+    {
+        newGameStart = mode;
+        Debug.Log(newGameStart);
+    }
+    
     public void InitializeGameData()
     {
         // Attempt to load the save game
@@ -125,10 +132,11 @@ public class SaveManager : MonoBehaviour
     // Called when a scene finishes loading
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log($"SaveManager: Scene loaded: {scene.name}");
+        Debug.Log($"SaveManager: Scene loaded: {scene.name} New game start: {newGameStart}");
 
+        InitializeGameData();
         // After the scene is loaded, apply the saved state for the current scene
-        if (_currentGameSaveData != null)
+        if (_currentGameSaveData != null && !newGameStart)
         {
             ApplySavedStateToCurrentScene();
         }
@@ -238,7 +246,7 @@ public class SaveManager : MonoBehaviour
         foreach(var remainingEntity in activeEntities.Values)
         {
              Debug.Log($"SaveManager: Object {remainingEntity.gameObject.name} with ID {remainingEntity.UniqueIdentifier} found in scene but not in save data. Destroying.");
-             Destroy(remainingEntity.gameObject);
+             DestroyImmediate(remainingEntity.gameObject);
              destroyedCount++;
         }
         

@@ -36,8 +36,14 @@ public class NormalSaveableComponentJson : MonoBehaviour, ISaveable
         StateData loadedState = JsonUtility.FromJson<StateData>(jsonState);
         if (loadedState != null)
         {
+            Debug.Log($"Loading pos form {this.gameObject.name}, with pos {loadedState.position.ToVector3()}");
             transform.position = loadedState.position.ToVector3();
+            Debug.Log($"Loading pos form {this.gameObject.name}, with pos {this.gameObject.transform.position}");
             transform.rotation = loadedState.rotation.ToQuaternion();
+        }
+        else
+        {
+            Debug.LogError("State not found");
         }
     }
     
@@ -51,7 +57,7 @@ public class NormalSaveableComponentJson : MonoBehaviour, ISaveable
     // TODO: not fully implement, need another filed storing initial data if using
     public void ResetState()
     {
-        transform.position = initialPosition;
+        //transform.position = initialPosition;
         transform.rotation = Quaternion.identity;
         gameObject.SetActive(true);
         Debug.Log("Object state reset.");

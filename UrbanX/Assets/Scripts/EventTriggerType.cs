@@ -102,7 +102,13 @@ public class EventTriggerType : MonoBehaviour
 
             case EventType.TYPE_C:
                 Debug.Log("Entered event trigger C area");
+                _eventsCSatisfied = true;
                 _insideEventCArea = true;
+                if (_eventASatisfied && _eventBSatisfied && _eventsCSatisfied)
+                {
+                    Debug.Log("Stairs opened");
+                    OpenStaircaseDoors();
+                }
                 break;
 
             case EventType.TYPE_D:

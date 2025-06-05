@@ -13,6 +13,7 @@ public class MenuButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     /// For use with the main menu. If you won't be dealing with this, leave the fields blank.
     [SerializeField] private GameObject _mainMenuReference;
     [SerializeField] private GameObject _creditsMenuReference;
+    [SerializeField] private SaveManager _saveManager;
 
     void OnEnable()
     {
@@ -43,11 +44,14 @@ public class MenuButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     // Button click methods
     public void NewGameConfirmed()
     {
+        SaveManager.Instance.StartNewGame(true);
         SceneManager.LoadScene("Apartment");
     }
 
     public void LoadGameConfirmed()
     {
+        SaveManager.Instance.StartNewGame(false);
+        SceneManager.LoadScene("Apartment");
         Debug.Log("The load button doesn't work as of now.");
     }
 

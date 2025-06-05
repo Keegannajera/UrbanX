@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -16,13 +17,17 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
 
     public bool controllable = true;
-    
-    
+
+    private void Start()
+    {
+        MouseScript.Instance.LockCursor();
+        Time.timeScale = 1f;
+    }
+
     void Update()
     {
         if (!controllable)
         {
-            Debug.Log("No player movement");
             return;
         }
 

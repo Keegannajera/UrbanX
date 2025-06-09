@@ -8,7 +8,7 @@ public class EventTriggerType : MonoBehaviour
         // Floor 1 event triggers
         TYPE_A = 0, TYPE_B = 1, TYPE_C = 2, TYPE_D = 3,
         // Floor 2 event triggers
-        TYPE_E = 4, TYPE_F = 5, TYPE_G = 6
+        TYPE_E = 4, TYPE_F = 5, TYPE_G = 6, TYPE_Z = 7
     }
 
     [SerializeField] private EventType eventType = EventType.TYPE_A;
@@ -132,6 +132,16 @@ public class EventTriggerType : MonoBehaviour
                 //TODO: open door
                 SaveManager.Instance.SaveGame();
                 break;
+            
+            case EventType.TYPE_Z:
+                Debug.Log("trigger light");
+                if (_eventASatisfied && _eventBSatisfied && _eventsCSatisfied)
+                {
+                    _timeline.playableAsset = Resources.Load("Timeline/LightTimeline") as PlayableAsset;
+                    _timeline.Play();
+                    Destroy(this.gameObject); 
+                }
+                break;
         }
 
         // Event trigger C will be the only event trigger that will persist; trigger D will be deleted when
@@ -140,7 +150,7 @@ public class EventTriggerType : MonoBehaviour
         {
             if (this.eventType == EventType.TYPE_D && (_eventASatisfied && _eventBSatisfied && _eventsCSatisfied))
                 Destroy(this.gameObject);  // Destroy trigger D if the three conditions are satisfied 
-            else if (this.eventType != EventType.TYPE_D)
+            else if (this.eventType != EventType.TYPE_D && this.eventType != EventType.TYPE_Z)
                 Destroy(this.gameObject);  // Destroy all other event triggers except for events C & D (conditional)
         }
     }
@@ -156,6 +166,7 @@ public class EventTriggerType : MonoBehaviour
     {
         GameObject.Find("DoorRight (13)").transform.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f) );
         GameObject.Find("DoorRight (14)").transform.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f) );
+        GameObject.Find("Lamp Before Stair").GetComponent<Light>().enabled = true;
     }
 
     // Event C method
